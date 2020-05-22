@@ -1,11 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+
+import { addStudent } from '../actions/actions';
+
+const initialStudent = {
+	firstName: '',
+	middleName: '',
+	lastName: '',
+	studentNumber: '',
+	classYear: '',
+	studentEmail: '',
+	projects: []
+}
 
 const AddStudentForm = props => {
+	const [newStudent, setNewStudent] = useState(initialStudent);
 
+	const handleChange = e => {
+		e.preventDefault();
+		setNewStudent({...newStudent, [e.target.name]: e.target.value });
+	};
+
+	const handleSubmit= e => {
+		e.preventDefault();
+		props.addStudent(newStudent);
+		setNewStudent(initialStudent);
+	};
+
+	console.log(props.students);
+	
 	return (
 		<div>
 			<h2>Add New Student</h2>
-			<form className='form'>
+			<form className='form' onSubmit={handleSubmit}>
 				<div>
 					<label className='form-label' htmlFor='inputFirstName'>First Name: </label>
 					<input
@@ -15,15 +42,19 @@ const AddStudentForm = props => {
 						placeholder='ex. John'
 						autoFocus='true'
 						width={30}
+						value={newStudent.firstName}
+						onChange={handleChange}
 						required
 					/>
-					<label className='form-label' htmlFor='inputInitial'>Middle Initial: </label>
+					<label className='form-label' htmlFor='inputMiddle'>Middle Name: </label>
 					<input
 						type='text'
-						name='middleInitial'
-						id='inputInitial'
+						name='middleName'
+						id='inputMiddle'
 						placeholder='ex. A'
-						width={2}
+						width={30}
+						value={newStudent.middleName}
+						onChange={handleChange}
 					/>
 					<label className='form-label' htmlFor='inputLastName'>Last Name: </label>
 					<input
@@ -32,6 +63,8 @@ const AddStudentForm = props => {
 						id='inputLastName'
 						placeholder='ex. Smith'
 						width={30}
+						value={newStudent.lastName}
+						onChange={handleChange}
 						required
 					/>
 				</div><br />
@@ -43,21 +76,23 @@ const AddStudentForm = props => {
 						name='studentNumber'
 						id='inputStudentNumber'
 						placeholder='ex. 11183021'
-						maxLength='8'
+						maxLength={8}
 						width={30}
+						value={newStudent.studentNumber}
+						onChange={handleChange}
 						required
 					/>
 				</div><br />
 
 				<div>
 					<h4>Class Year</h4>
-					<input type='radio' id='radioFreshman' name='year' value='Freshman' />
+					<input type='radio' id='radioFreshman' name='year' value='Freshman' onChange={handleChange}/>
 					<label htmlFor='radioFreshman'> Freshman</label>
-					<input type='radio' id='radioSophmore' name='year' value='Sophmore' />
+					<input type='radio' id='radioSophmore' name='year' value='Sophmore' onChange={handleChange} />
 					<label htmlFor='radioSophmore'> Sophmore</label>
-					<input type='radio' id='radioJunior' name='year' value='Junior' />
+					<input type='radio' id='radioJunior' name='year' value='Junior' onChange={handleChange} />
 					<label htmlFor='radioJunior'> Junior</label>
-					<input type='radio' id='radioSenior' name='year' value='Senior' />
+					<input type='radio' id='radioSenior' name='year' value='Senior' onChange={handleChange} />
 					<label htmlFor='radioSenior'> Senior</label>
 				</div><br />
 
@@ -65,10 +100,12 @@ const AddStudentForm = props => {
 					<label className='form-label' htmlFor='inputEmail'>Student Email: </label>
 					<input
 						type='email'
-						name='email'
+						name='studentEmail'
 						id='inputEmail'
 						placeholder='myemail@school.edu'
 						width={30}
+						value={newStudent.studentEmail}
+						onChange={handleChange}
 						required
 					/>
 				</div><br />
@@ -82,4 +119,11 @@ const AddStudentForm = props => {
 	)
 };
 
-export default AddStudentForm;
+const mapStateToProps = state => {
+	return {
+		students: state.students,
+	}
+}
+
+
+export default connect(mapStateToProps, { addStudent })(AddStudentForm);
