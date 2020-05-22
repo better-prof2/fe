@@ -5,18 +5,24 @@ import Header from './Header';
 
 import './App.css';
 import Login from './Login';
+import { Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
-    <div className='App'>
+    <h1 className='App'>
       <Header />
+      <Switch>
+        <Route exact path='/' component={() => <h1>Home</h1>} />
+        <Route exact path='/about' component={() => <h1>About</h1>} />
+        <Route exact path='/signup' component={SignUp} />
+        <Route exact path='/login' component={Login} />
+      </Switch>
       <h1>Better Professor App</h1>
-      <SignUp />
-      <Login />
+    
       <Button variant='contained'>
         Click me!
       </Button>
-    </div>
+    </h1>
   )
 }
 
