@@ -16,5 +16,8 @@ export default createMuiTheme({
     secondary: {
       main: `${nightBLue}`
     } 
+  },
+  typography: {
+    fontFamily: "Roboto"
   }
 })

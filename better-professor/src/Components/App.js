@@ -1,5 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from '@material-ui/styles';
+import Typography from '@material-ui/core/Typography';
 import theme from './ui/Theme'
 import Button from '@material-ui/core/Button';
 import SignUp from "./SignUp";
@@ -19,7 +20,7 @@ function App() {
         <Route exact path='/signup' component={SignUp} />
         <Route exact path='/login' component={Login} />
       </Switch>
-      <h1>Better Professor App</h1>
+      <Typography variant='h3' color='secondary'>Better Professor App</Typography>
     
       <Button variant='contained'>
         Click me!
