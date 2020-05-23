@@ -1,4 +1,6 @@
 import React from 'react';
+import { ThemeProvider } from '@material-ui/styles';
+import theme from './ui/Theme'
 import Button from '@material-ui/core/Button';
 import SignUp from "./SignUp";
 import Header from './Header';
@@ -9,7 +11,7 @@ import { Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
-    <h1 className='App'>
+    <ThemeProvider theme={theme}>
       <Header />
       <Switch>
         <Route exact path='/' component={() => <h1>Home</h1>} />
@@ -22,7 +24,7 @@ function App() {
       <Button variant='contained'>
         Click me!
       </Button>
-    </h1>
+    </ThemeProvider>
   )
 }
 
