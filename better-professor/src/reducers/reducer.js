@@ -4,6 +4,7 @@ import studentData from '../dummyData/studentData';
 
 const initialState = studentData;
 
+
 export const reducer = (state = initialState, action) => {
 	switch (action.type) {
 		case ADD_STUDENT:
