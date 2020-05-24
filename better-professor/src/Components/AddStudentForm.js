@@ -24,11 +24,10 @@ const AddStudentForm = props => {
 	const handleSubmit= e => {
 		e.preventDefault();
 		props.addStudent(newStudent);
-		setNewStudent(initialStudent);
+		props.history.push('/dashboard')
 	};
 
-	console.log(props.students);
-	
+	// console.log(props.students);
 	return (
 		<div>
 			<h2>Add New Student</h2>
@@ -39,7 +38,7 @@ const AddStudentForm = props => {
 						type='text'
 						name='firstName'
 						id='inputFirstName'
-						placeholder='ex. John'
+						placeholder='ex. Neil'
 						autoFocus='true'
 						width={30}
 						value={newStudent.firstName}
@@ -51,7 +50,7 @@ const AddStudentForm = props => {
 						type='text'
 						name='middleName'
 						id='inputMiddle'
-						placeholder='ex. A'
+						placeholder='ex. Alden'
 						width={30}
 						value={newStudent.middleName}
 						onChange={handleChange}
@@ -61,7 +60,7 @@ const AddStudentForm = props => {
 						type='text'
 						name='lastName'
 						id='inputLastName'
-						placeholder='ex. Smith'
+						placeholder='ex. Armstrong'
 						width={30}
 						value={newStudent.lastName}
 						onChange={handleChange}
@@ -86,13 +85,13 @@ const AddStudentForm = props => {
 
 				<div>
 					<h4>Class Year</h4>
-					<input type='radio' id='radioFreshman' name='year' value='Freshman' onChange={handleChange}/>
+					<input type='radio' id='radioFreshman' name='classYear' value='Freshman' checked={newStudent.classYear = 'Freshman'} onChange={handleChange}/>
 					<label htmlFor='radioFreshman'> Freshman</label>
-					<input type='radio' id='radioSophmore' name='year' value='Sophmore' onChange={handleChange} />
+					<input type='radio' id='radioSophmore' name='classYear' value='Sophmore' checked={newStudent.classYear = 'Sophmore'} onChange={handleChange} />
 					<label htmlFor='radioSophmore'> Sophmore</label>
-					<input type='radio' id='radioJunior' name='year' value='Junior' onChange={handleChange} />
+					<input type='radio' id='radioJunior' name='classYear' value='Junior' checked={newStudent.classYear = 'Junior'} onChange={handleChange} />
 					<label htmlFor='radioJunior'> Junior</label>
-					<input type='radio' id='radioSenior' name='year' value='Senior' onChange={handleChange} />
+					<input type='radio' id='radioSenior' name='classYear' value='Senior' checked={newStudent.classYear = 'Senior'} onChange={handleChange} />
 					<label htmlFor='radioSenior'> Senior</label>
 				</div><br />
 

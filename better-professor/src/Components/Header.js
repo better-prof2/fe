@@ -8,15 +8,16 @@ import { Link } from 'react-router-dom';
 
 export default function Header(props) {
 return (
-  <AppBar position='fixed'>
+  <AppBar position='relative'>
     <Toolbar>
       <Typography variant='h4'>Better Professor</Typography>
-    <Tabs classes>
-      <Tab component={Link} to='/' label='Home' />
-      <Tab component={Link} to='/about' label='About' />
-      <Tab component={Link} to='/signup' label='Sign Up' />
-      <Tab component={Link} to='/login' label='Login' />
-    </Tabs>
+       <Tabs classes>
+         <Tab component={Link} to='/' label='Home' />
+         <Tab component={Link} to='/about' label='About' />
+         <Tab component={Link} to='/signup' label='Sign Up' />
+         <Tab component={Link} to='/login' label='Login' />
+         <Tab component={Link} to='/dashboard' label='Dashboard' />
+       </Tabs>
     </Toolbar>
 
   </AppBar>
