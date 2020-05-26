@@ -49,57 +49,70 @@ const SignUp = () => {
 
   return (
     <Grid container direction="row">
-      <Grid item container direction="column" justify='center' lg={5}>
+      <Grid item container direction="column" justify="center" lg={5}>
         <Grid item>
-        <Typography variant="h5" style={{ color: theme.palette.primary.main }}>
-          Sign Up
-        </Typography>
-        <Grid item containter>
-          <Grid item>
-
+          <Typography
+            variant="h5"
+            style={{ color: theme.palette.primary.main }}
+          >
+            Sign Up
+          </Typography>
+          <Grid item containter>
+            <Grid item></Grid>
           </Grid>
+          <form onSubmit={handleSubmit}>
+            <Grid item>
+              <TextField
+                variant="outlined"
+                label="Full Name"
+                id="name"
+                name="name"
+                placeholder="Enter your full name"
+                value={signupData.name}
+                onChange={handleChanges}
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+                variant="outlined"
+                label="Email"
+                id="email"
+                name="email"
+                placeholder="Enter your email address"
+                value={signupData.email}
+                onChange={handleChanges}
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+                variant="outlined"
+                label="Password"
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Create a password"
+                value={signupData.password}
+                onChange={handleChanges}
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+                variant="outlined"
+                label="Confirm Password"
+                type="password"
+                name="confirm"
+                placeholder="Re-enter password"
+                value={signupData.confirm}
+                onChange={handleChanges}
+              />
+            </Grid>
+            <Grid item>
+              <Button variant="contained" color="primary">
+                Create Account
+              </Button>
+            </Grid>
+          </form>
         </Grid>
-        <form onSubmit={handleSubmit}>
-          <TextField label='Full Name'  type="text"
-              name="name"
-              placeholder="Enter your full name"
-              value={signupData.name}
-              onChange={handleChanges} />
-     
-          <label>
-            Email
-            <input
-              type="text"
-              name="email"
-              placeholder="Enter your email address"
-              value={signupData.email}
-              onChange={handleChanges}
-            />
-          </label>
-          <label>
-            Password
-            <input
-              type="password"
-              name="password"
-              placeholder="Create a password"
-              value={signupData.password}
-              onChange={handleChanges}
-            />
-          </label>
-          <label>
-            Confirm password
-            <input
-              type="password"
-              name="name"
-              placeholder="Re-enter password"
-              value={signupData.confirm}
-              onChange={handleChanges}
-            />
-          </label>
-          <button>Create Account</button>
-        </form>
-        </Grid>
-       
       </Grid>
       <Grid item container className={classes.background} lg={7}></Grid>
     </Grid>
