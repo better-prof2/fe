@@ -54,17 +54,18 @@ const SignUp = () => {
         <Typography variant="h5" style={{ color: theme.palette.primary.main }}>
           Sign Up
         </Typography>
+        <Grid item containter>
+          <Grid item>
+
+          </Grid>
+        </Grid>
         <form onSubmit={handleSubmit}>
-          <label>
-            Full Name
-            <input
-              type="text"
+          <TextField label='Full Name'  type="text"
               name="name"
               placeholder="Enter your full name"
               value={signupData.name}
-              onChange={handleChanges}
-            />
-          </label>
+              onChange={handleChanges} />
+     
           <label>
             Email
             <input
