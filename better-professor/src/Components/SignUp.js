@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     height: "60em",
   },
+  form: {
+    // width: 'auto',
+  },
 }));
 
 ///////////SignUp function/////////////
@@ -49,70 +52,83 @@ const SignUp = () => {
 
   return (
     <Grid container direction="row">
-      <Grid item container direction="column" justify="center" alignItems='center' lg={5}>
+      <Grid
+        item
+        container
+        className={classes.form}
+        direction="column"
+        justify="center"
+        alignItems="center"
+        lg={5}
+      >
         <Grid item>
-          <Grid item justify='center'>
+          <Grid item>
             <Typography
               variant="h5"
-              justify='center'
               style={{ color: theme.palette.primary.main }}
             >
               Sign Up
             </Typography>
           </Grid>
-          <Grid item container style={{marginTop: '2em'}}>
-          <form onSubmit={handleSubmit}>
-            <Grid item >
-              <TextField
-                variant="outlined"
-                label="Full Name"
-                id="name"
-                name="name"
-                placeholder="Enter your full name"
-                value={signupData.name}
-                onChange={handleChanges}
-              />
-            </Grid>
-            <Grid item style={{marginTop: '1em'}}>
-              <TextField
-                variant="outlined"
-                label="Email"
-                id="email"
-                name="email"
-                placeholder="Enter your email address"
-                value={signupData.email}
-                onChange={handleChanges}
-              />
-            </Grid>
-            <Grid item style={{marginTop: '1em'}}>
-              <TextField
-                variant="outlined"
-                label="Password"
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Create a password"
-                value={signupData.password}
-                onChange={handleChanges}
-              />
-            </Grid>
-            <Grid item style={{marginTop: '1em'}}>
-              <TextField
-                variant="outlined"
-                label="Confirm Password"
-                type="password"
-                name="confirm"
-                placeholder="Re-enter password"
-                value={signupData.confirm}
-                onChange={handleChanges}
-              />
-            </Grid>
-            <Grid item container justify='center' style={{marginTop: '2em'}}>
-              <Button variant="contained" color="primary">
-                Create Account
-              </Button>
-            </Grid>
-          </form>
+          <Grid item container style={{ marginTop: "2em" }}>
+            <form onSubmit={handleSubmit}>
+              <Grid item>
+                <TextField
+                  variant="outlined"
+                  label="Full Name"
+                  id="name"
+                  name="name"
+                  placeholder="Enter your full name"
+                  value={signupData.name}
+                  onChange={handleChanges}
+                />
+              </Grid>
+              <Grid item style={{ marginTop: "1em" }}>
+                <TextField
+                  fullWidth
+                  variant="outlined"
+                  label="Email"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your email address"
+                  value={signupData.email}
+                  onChange={handleChanges}
+                />
+              </Grid>
+              <Grid item style={{ marginTop: "1em" }}>
+                <TextField
+                  variant="outlined"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Create a password"
+                  value={signupData.password}
+                  onChange={handleChanges}
+                />
+              </Grid>
+              <Grid item style={{ marginTop: "1em" }}>
+                <TextField
+                  variant="outlined"
+                  label="Confirm Password"
+                  type="password"
+                  name="confirm"
+                  placeholder="Re-enter password"
+                  value={signupData.confirm}
+                  onChange={handleChanges}
+                />
+              </Grid>
+              <Grid
+                item
+                container
+                justify="center"
+                style={{ marginTop: "2em" }}
+              >
+                <Button fullWidth variant="contained" color="primary">
+                  Create Account
+                </Button>
+              </Grid>
+            </form>
           </Grid>
         </Grid>
       </Grid>
