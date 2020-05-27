@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-
 import { addStudent } from "../actions/actions";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import Theme from "./ui/Theme";
+
+
 
 const initialStudent = {
   firstName: "",
@@ -12,6 +19,10 @@ const initialStudent = {
   studentEmail: "",
   projects: [],
 };
+
+  /////////material-ui variables////////
+  // const classes = useStyles();
+  // const theme = useTheme();
 
 const AddStudentForm = (props) => {
   const [newStudent, setNewStudent] = useState(initialStudent);
@@ -29,6 +40,9 @@ const AddStudentForm = (props) => {
 
   // console.log(props.students);
   return (
+    // <Grid container direction='column '>
+
+    // </Grid>
     <div>
       <h2>Add New Student</h2>
       <form className="form" onSubmit={handleSubmit}>
