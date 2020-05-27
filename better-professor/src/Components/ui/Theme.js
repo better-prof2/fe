@@ -17,7 +17,12 @@ export default createMuiTheme({
       main: `${nightBLue}`
     } 
   },
+  
   typography: {
     fontFamily: "Roboto"
+  },
+
+  overrides: {
+
   }
 })

@@ -31,6 +31,7 @@ const SignUp = () => {
 
   ////////changeHandler//////////
   const handleChanges = (e) => {
+    console.log(e.target.value);
     setSignupData({
       ...signupData,
       [e.target.name]: e.target.value,
@@ -40,7 +41,6 @@ const SignUp = () => {
   /////////handle submit////////////
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
   };
 
   /////////material-ui variables////////
@@ -49,19 +49,20 @@ const SignUp = () => {
 
   return (
     <Grid container direction="row">
-      <Grid item container direction="column" justify="center" lg={5}>
+      <Grid item container direction="column" justify="center" alignItems='center' lg={5}>
         <Grid item>
-          <Typography
-            variant="h5"
-            style={{ color: theme.palette.primary.main }}
-          >
-            Sign Up
-          </Typography>
-          <Grid item containter>
-            <Grid item></Grid>
+          <Grid item justify='center'>
+            <Typography
+              variant="h5"
+              justify='center'
+              style={{ color: theme.palette.primary.main }}
+            >
+              Sign Up
+            </Typography>
           </Grid>
+          <Grid item container style={{marginTop: '2em'}}>
           <form onSubmit={handleSubmit}>
-            <Grid item>
+            <Grid item >
               <TextField
                 variant="outlined"
                 label="Full Name"
@@ -72,7 +73,7 @@ const SignUp = () => {
                 onChange={handleChanges}
               />
             </Grid>
-            <Grid item>
+            <Grid item style={{marginTop: '1em'}}>
               <TextField
                 variant="outlined"
                 label="Email"
@@ -83,7 +84,7 @@ const SignUp = () => {
                 onChange={handleChanges}
               />
             </Grid>
-            <Grid item>
+            <Grid item style={{marginTop: '1em'}}>
               <TextField
                 variant="outlined"
                 label="Password"
@@ -95,7 +96,7 @@ const SignUp = () => {
                 onChange={handleChanges}
               />
             </Grid>
-            <Grid item>
+            <Grid item style={{marginTop: '1em'}}>
               <TextField
                 variant="outlined"
                 label="Confirm Password"
@@ -106,12 +107,13 @@ const SignUp = () => {
                 onChange={handleChanges}
               />
             </Grid>
-            <Grid item>
+            <Grid item container justify='center' style={{marginTop: '2em'}}>
               <Button variant="contained" color="primary">
                 Create Account
               </Button>
             </Grid>
           </form>
+          </Grid>
         </Grid>
       </Grid>
       <Grid item container className={classes.background} lg={7}></Grid>
