@@ -83,6 +83,8 @@ const SignUp = () => {
   /////////handle submit////////////
   const handleSubmit = (e) => {
     e.preventDefault();
+    validate();
+    
   };
 
   /////////material-ui variables////////
