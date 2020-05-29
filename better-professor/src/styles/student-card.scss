@@ -1,0 +1,61 @@
+.card {
+  background-color: $card-bg;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+}
+
+.avatarImg {
+  // border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.student-container {
+  display: grid;
+  grid-gap: 50px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.student-info {
+  margin-left: 1rem;
+  width: 100%;
+}
+
+.student-wraper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.student-btn {
+  display: inline-block;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.4rem;
+  margin-right: 0.5rem;
+}
+
+.student-btn-view {
+  background-color: $primary-color;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  &:hover {
+    background-color: $secondary-color;
+  }
+}
+
+.student-btn-delete {
+  background-color: transparent;
+  color: $primary-color;
+  border: 0.5px solid $primary-color;
+  font-size: 0.8rem;
+  font-weight: bold;
+  &:hover {
+    background-color: red;
+    color: white;
+    border: transparent;
+    font-size: 0.8rem;
+  }
+}
