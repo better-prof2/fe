@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+h2 {
+  text-align: center;
+}
+
+.dashboard-container {
+  width: 80%;
+  margin-left: 9%;
+  margin-right: 9%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.student {
+  width: 45%;
+  margin: 15px 2%;
+
+}
