@@ -3,6 +3,8 @@ import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 export const ADD_STUDENT = 'ADD_STUDENT';
 
+export const DATA_LOAD_START = 'DATA_LOAD_START';
+
 export const addStudent = student => dispatch => {
 	dispatch({type: ADD_STUDENT, payload: student})
 }
