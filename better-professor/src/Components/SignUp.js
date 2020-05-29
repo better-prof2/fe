@@ -41,6 +41,26 @@ const SignUp = () => {
     confirm: "",
   });
 
+  ////////set error state and validate//////////
+  const [ errorState, setErrorState ] = useState ({
+    name: "",
+    email: "",
+    password: "",
+    confirm: "",
+  })
+
+  const validate = (event) => {
+    yup.reach(formSchema, event.target.name).validate(event.target.name).then((valid) => {
+      setErrorState({ ...errorState, [event.target.name]: ""})
+    })
+    .catch((err) => {
+      console.log(err.errors);
+      setErrorState({
+        ...errorState, [event.target.name]: err.errors[0]
+      })
+    })
+  }
+
   ////////changeHandler//////////
   const handleChanges = (e) => {
     console.log(e.target.value);
