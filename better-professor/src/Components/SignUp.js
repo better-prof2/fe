@@ -7,6 +7,15 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Theme from "./ui/Theme";
 import bluepencils from "./ui/Images/blue-pencils.jpg";
+import * as yup from "yup";
+
+//////////////yup form schema///////////
+const formSchema = yup.object().shape({
+  name: yup.string().required("Enter name"),
+  email: yup.string().email("Enter a valid email").required("Please enter your email"),
+  password: yup.string().min(5, "Must include at least 5 characters"),
+  confirm: yup.string().min(5, "Must include at least 5 characters"),
+})
 
 //////////material-ui variables///////
 const useStyles = makeStyles((theme) => ({
