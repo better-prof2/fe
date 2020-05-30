@@ -21,11 +21,11 @@ return (
     <Toolbar>
       <Typography variant='h4'>Better Professor</Typography>
        <Tabs className={classes.tabContainer}>
-         <Tab component={Link} to='/' label='Home' />
-         <Tab component={Link} to='/about' label='About' />
-         <Tab component={Link} to='/signup' label='Sign Up' />
+         <Tab component={Link} to='/' value="/" label='Home' />
+         <Tab component={Link} to='/about' value="/about" label='About' />
+         <Tab component={Link} to='/signup' value="/signup" label='Sign Up' />
          <Tab component={Link} to='/login' label='Login' />
-         <Tab component={Link} to='/dashboard' label='Dashboard' />
+         <Tab component={Link} to='/dashboard' value="/dashboard" label='Dashboard' />
        </Tabs>
     </Toolbar>
 

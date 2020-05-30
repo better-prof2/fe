@@ -7,17 +7,18 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Theme from "./ui/Theme";
 import bluepencils from "./ui/Images/blue-pencils.jpg";
-import * as yup from "yup";
+import * as Yup from "yup";
+import { withFormik } from "formik";
 
 //////////////yup form schema///////////
-const formSchema = yup.object().shape({
-  name: yup.string().required("Enter name"),
-  email: yup
+const formSchema = Yup.object().shape({
+  name: Yup.string().required("Enter name"),
+  email: Yup
     .string()
     .email("Enter a valid email")
     .required("Please enter your email"),
-  password: yup.string().min(8, "Must include at least 8 characters"),
-  confirm: yup.string().min(5, "Must include at least 5 characters"),
+  password: Yup.string().min(8, "Must include at least 8 characters"),
+  confirm: Yup.string().min(5, "Must include at least 5 characters"),
 });
 
 //////////material-ui variables///////
@@ -53,7 +54,7 @@ const SignUp = () => {
   });
 
   const validate = (event) => {
-    yup
+    Yup
       .reach(formSchema, event.target.name)
       .validate(event.target.name)
       .then((valid) => {
@@ -73,7 +74,9 @@ const SignUp = () => {
 
   ////////changeHandler//////////
   const handleChanges = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
+    e.persist();
+    validate(e);
     setSignupData({
       ...signupData,
       [e.target.name]: e.target.value,
@@ -83,7 +86,8 @@ const SignUp = () => {
   /////////handle submit////////////
   const handleSubmit = (e) => {
     e.preventDefault();
-    validate();
+    validate(e);
+    console.log('submitted');
     
   };
 
