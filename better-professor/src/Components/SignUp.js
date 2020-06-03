@@ -53,21 +53,21 @@ const SignUp = () => {
     confirm: "",
   });
 
-  const validate = (event) => {
+  const validate = (e) => {
     Yup
-      .reach(formSchema, event.target.name)
-      .validate(event.target.name)
+      .reach(formSchema, e.target.name)
+      .validate(e.target.name)
       .then((valid) => {
         setErrorState({
           ...errorState,
-          [event.target.name]: "",
+          [e.target.name]: "",
         });
       })
       .catch((err) => {
         console.log(err.errors);
         setErrorState({
           ...errorState,
-          [event.target.name]: err.errors[0],
+          [e.target.name]: err.errors,
         });
       });
   };
@@ -81,11 +81,13 @@ const SignUp = () => {
       ...signupData,
       [e.target.name]: e.target.value,
     });
+    console.log(e.target.name);
+    
   };
 
   /////////handle submit////////////
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preDefault();
     validate(e);
     console.log('submitted');
     
